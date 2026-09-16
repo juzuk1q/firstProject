@@ -1,0 +1,296 @@
+/* custom props */
+:root {
+  --color-bg: #252525;
+  --color-surface: #303030;
+  --color-text: #E4E9F2;
+  --color-muted: #bb8f8f;
+  --color-accent: #b83f3f;
+  --color-danger: #4fd95a;
+  --radius: 6px;
+}
+
+/* селектор по тегу */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1 {
+  color: var(--color-accent);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* селектор по классу */
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 2px solid #4d4d4d;
+  padding-top: 24px;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+.site-nav {
+  background-color: #272727;
+  margin-top: 18px;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  padding: 12px 0;
+  margin: 0;
+}
+
+/* селектор по ID */
+#top {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+#footer {
+  background-color: var(--color-surface);
+  padding: 20px 0;
+  color: var(--color-muted);
+}
+
+/* дочерний селектор - только разделы, лежащие прямо в main.content */
+.content > section {
+  margin-bottom: 40px;
+}
+
+/* селектор потомков - любой <p> внутри блока статей, на любом уровне вложенности */
+#articles p {
+  margin-bottom: 10px;
+}
+
+/* соседний селектор - абзац, идущий сразу после шапки статьи */
+.article__header + p {
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
+/* селекторы атрибутов */
+article[itemscope] {
+  background-color: var(--color-surface);
+  padding: 18px 22px;
+  margin: 14px 0;
+  border-radius: var(--radius);
+}
+
+input[type="email"] {
+  border-color: var(--color-accent);
+}
+
+input[required] {
+  border-left: 3px solid var(--color-accent);
+}
+
+/* .tags получает стиль от трёх правил - побеждает самое специфичное */
+
+/* 0,1,0 */
+.tags {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+/* 0,1,1 (тег + класс) */
+p.tags {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* 0,2,0 побеждает предыдущие два правила */
+.article__footer .tags {
+  color: var(--color-accent);
+}
+
+/* !important - переопределяет каскад, используется только в крайних случаях */
+.tags {
+  border-top: 1px dashed #4b4b4b !important;
+  padding-top: 8px;
+}
+
+/* наследуется дочерними элементами автоматически */
+.content {
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  color: #e7e7e7;
+}
+
+/* border и padding НЕ наследуются - указываем явно там, где нужно */
+article[itemscope] {
+  border: 1px solid var(--color-accent);
+}
+
+/* наследование размера и начертания шрифта внутри сайдбара */
+.sidebar {
+  font-size: 15px;
+  font-weight: normal;
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+/* псевдоклассы */
+li:hover {
+  background-color: #424242;
+  cursor: pointer;
+}
+
+.tag-list li:nth-child(odd) {
+  background-color: #292929;
+}
+
+.site-header:hover {
+  background-color: #292929;
+  transition: background-color 0.3s;
+}
+
+/* псевдоэлементы */
+p::first-line {
+  font-weight: bold;
+}
+
+.article__header h3::after {
+  content: " 🔒";
+  color: var(--color-accent);
+}
+
+.article__footer .tags::before {
+  content: "🏷 ";
+}
+
+/* currentColor - элемент наследует цвет текста и использует его для рамки */
+.tags span {
+  display: inline-block;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-right: 6px;
+  color: var(--color-accent);
+}
+
+/* анимация появления  */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+article[itemscope] {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+/* упрощаем макет на узких экранах */
+@media (max-width: 640px) {
+  .site-header {
+    padding-top: 16px;
+  }
+
+  article[itemscope] {
+    padding: 12px;
+  }
+
+  .site-nav ul {
+    gap: 4px 14px;
+  }
+}
+
+/* таблица и форма  */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+caption {
+  text-align: left;
+  color: var(--color-muted);
+  padding: 10px 14px 0;
+  font-size: 0.9rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid #525252;
+}
+
+th {
+  background-color: #2A2A2A;
+  color: var(--color-muted);
+}
+
+.form-row {
+  margin-bottom: 14px;
+}
+
+.form-row label,
+fieldset legend {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--color-muted);
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  max-width: 320px;
+  padding: 8px 10px;
+  background-color: var(--color-bg);
+  border: 1px solid #525252;
+  border-radius: 4px;
+  color: var(--color-text);
+}
+
+fieldset {
+  border: 1px solid #525252;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 14px 0;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+button[type="submit"] {
+  background-color: var(--color-accent);
+  color: #232323;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
