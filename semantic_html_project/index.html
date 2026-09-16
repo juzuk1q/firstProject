@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практикум информационной безопасности</title>
+  <meta name="description" content="Образовательный проект о цифровой гигиене.">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header__inner">
+      <a href="#top" class="logo" id="top">КиберЩит</a>
+      <p class="tagline">Простым языком о том, как стать жертвой взлома</p>
+    </div>
+    <nav class="site-nav" aria-label="Основная навигация">
+      <div class="wrap">
+        <ul>
+          <li><a href="#intro">Главная</a></li>
+          <li><a href="#articles">Статьи</a></li>
+          <li><a href="#schedule">Расписание</a></li>
+          <li><a href="#subscribe">Подписка</a></li>
+          <li><a href="#about">О проекте</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page wrap">
+    <main class="content">
+
+      <section id="intro" aria-labelledby="intro-heading">
+        <h1 id="intro-heading">Информационная безопасность начинается с привычек, а не с антивируса</h1>
+        <p>
+          Большинство успешных атак ломают технику - они не обманывают человека.
+          Здесь мы разбираем реальные приёмы злоумышленников и простые правила,
+          которые повышают риск взлома почты, аккаунтов и рабочих систем.
+        </p>
+      </section>
+
+      <section id="articles" aria-labelledby="articles-heading">
+        <h2 id="articles-heading">Статьи</h2>
+
+        <article itemscope itemtype="https://schema.org/Article">
+          <header class="article__header">
+            <h3 itemprop="headline">Фишинг: как распознать поддельное письмо за 10 часов</h3>
+            <p class="meta">
+              <time itemprop="datePublished" datetime="2026-09-01">26 августа 2067</time> ·
+              автор <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Аноним</span></span>
+            </p>
+          </header>
+          <p itemprop="description">
+            Разбираем признаки фишингового письма: поддельный домен получателя,
+            искусственную срочность и ссылки, ведущие туда, куда обещает текст.
+          </p>
+          <p>
+            Главный приём мошенников - заставить действовать быстро, не задумываясь.
+            «Ваш аккаунт разблокирован», «оплатите ЖКХ сегодня» - такие формулировки
+            специально давят на эмоции. Перед тем как перейти по ссылке, кликните на
+            неё курсором.
+          </p>
+          <footer class="article__footer">
+            <p class="tags">Теги: <span>#фишинг</span> <span>#соц-инженерия</span></p>
+          </footer>
+        </article>
+
+        <article itemscope itemtype="https://schema.org/Article">
+          <header class="article__header">
+            <h3 itemprop="headline">Пароли и двухфакторная аутентификация: минимум, без которого нельзя</h3>
+            <p class="meta">
+              <time itemprop="datePublished" datetime="2026-08-18">18 августа 2067</time> ·
+              автор <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Аноним</span></span>
+            </p>
+          </header>
+          <p itemprop="description">
+            Почему менеджер паролей важнее сложного пароля «в голове», и как 2FA
+            останавливает атаку даже при утечке базы данных.
+          </p>
+          <p>
+            Один и тот же пароль на нескольких сайтах - самая частая причина
+            массовых взломов: утечка на одном сервисе открывает доступ ко всем
+            остальным. Менеджер паролей снимает эту проблему, а второй фактор
+            (приложение-аутентификатор или ключ безопасности) защищает даже тогда,
+            когда пароль всё же попал в чужие руки.
+          </p>
+          <footer class="article__footer">
+            <p class="tags">Теги: <span>#пароли</span> <span>#2fa</span></p>
+          </footer>
+        </article>
+
+        <article itemscope itemtype="https://schema.org/Article">
+          <header class="article__header">
+            <h3 itemprop="headline">VPN и шифрование трафика: что они реально</h3>
+            <p class="meta">
+              <time itemprop="datePublished" datetime="2026-07-30">30 июля 2067</time> ·
+              автор <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Аноним</span></span>
+            </p>
+          </header>
+          <p itemprop="description">
+            VPN шифрует канал между вами и сервером, но не делает вас анонимным
+            в интернете целиком - разбираем, от чего он защищает, а от чего нет.
+          </p>
+          <p>
+            В закрытой Wi-Fi сети (кафе, аэропорт) трафик тяжело перехватить -
+            VPN закрывает этот канал шифрованием. При этом сайты, когда заходите
+            под своим аккаунтом, всё равно узнают вас по паролю. VPN - это атака
+            канала передачи данных, а не универсальный «плащ-невидимка».
+          </p>
+          <footer class="article__footer">
+            <p class="tags">Теги: <span>#vpn</span> <span>#шифрование</span></p>
+          </footer>
+        </article>
+
+      </section>
+
+      <section id="schedule" aria-labelledby="schedule-heading">
+        <h2 id="schedule-heading">Расписание открытых вебинаров</h2>
+        <table>
+          <caption>Ближайшие вебинары по кибербезопасности</caption>
+          <thead>
+            <tr>
+              <th scope="col">Дата</th>
+              <th scope="col">Тема</th>
+              <th scope="col">Спикер</th>
+              <th scope="col">Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>23 сентября</td>
+              <td>Разбор фишингового письма</td>
+              <td>А. Волков</td>
+              <td>Бесплатно</td>
+            </tr>
+            <tr>
+              <td>30 сентября</td>
+              <td>Настройка менеджера паролей и 2FA</td>
+              <td>И. Соколова</td>
+              <td>Бесплатно</td>
+            </tr>
+            <tr>
+              <td>7 октября</td>
+              <td>Как читают трафик в открытых Wi-Fi сетях</td>
+              <td>Д. Романов</td>
+              <td>10 руб.</td>
+            </tr>
+            <tr>
+              <td>14 октября</td>
+              <td>Основы шифрования: симметричное vs асимметричное</td>
+              <td>А. Волков</td>
+              <td>300 руб.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="subscribe" aria-labelledby="subscribe-heading">
+        <h2 id="subscribe-heading">Подписка на рассылку</h2>
+        <p>Раз в неделю - скучный разбор одной темы, со спамом.</p>
+        <form action="#" method="post">
+          <div class="form-row">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Электронная почта</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <fieldset>
+            <legend>Какие темы интересны</legend>
+            <div class="checkbox-row">
+              <input type="checkbox" id="topic-phishing" name="topics" value="phishing">
+              <label for="topic-phishing">Фишинг</label>
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="topic-passwords" name="topics" value="passwords">
+              <label for="topic-passwords">Пароли и двухфакторная аутентификация</label>
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="topic-vpn" name="topics" value="vpn">
+              <label for="topic-vpn">VPN и шифрование</label>
+            </div>
+          </fieldset>
+          <button type="submit">Подписаться</button>
+        </form>
+      </section>
+
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">О проекте</h2>
+        <p>
+          «КиберЩит» - сайт, созданный в рамках работы по
+          семантической HTML-вёрстке. Материалы носят юмористический характер
+          и не заменяют профессиональные рекомендации по безопасности.
+        </p>
+      </section>
+
+    </main>
+
+    <aside class="sidebar" aria-labelledby="aside-heading">
+      <h2 id="aside-heading">Коротко</h2>
+
+      <section>
+        <h3>Свежие материалы</h3>
+        <ul>
+          <li><a href="#articles">Фишинг: как распознать настоящее письмо</a></li>
+          <li><a href="#articles">Пароли и двухфакторная аутентификация</a></li>
+          <li><a href="#articles">VPN и шифрование трафика</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Совет дня</h3>
+        <p>
+          вводите пароль по ссылке из письма - не открывайте сайт
+          вручную, набрав адрес самостоятельно или через сохранённую закладку.
+        </p>
+      </section>
+
+      <section>
+        <h3>Популярные теги</h3>
+        <ul class="tag-list">
+          <li>#фишинг</li>
+          <li>#пароли</li>
+          <li>#vpn</li>
+          <li>#2fa</li>
+          <li>#шифрование</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="site-footer" id="footer" itemscope itemtype="https://schema.org/Organization">
+    <div class="wrap footer__inner">
+      <p><strong itemprop="name">КиберЩит</strong> - образовательный проект об информационной безопасности.</p>
+      <address itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
+        Почта: <a href="https://youtu.be/dQw4w9WgXcQ">hello@kibershit.ai</a>
+      </address>
+    </div>
+  </footer>
+
+</body>
+</html>
