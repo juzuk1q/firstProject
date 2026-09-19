@@ -1,0 +1,189 @@
+/* стили для header */
+.header {
+    background-color: #323232;
+    color: #f5f5f5;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+/* flexbox для навигации */
+.navigation ul {
+    flex-direction: column;
+    display: flex;
+    list-style: none;
+    background-color: #363636;
+    padding: 0;
+}
+
+.navigation li {
+    flex: 1;
+    text-align: center;
+}
+
+.navigation a {
+    display: block;
+    color: #e8e8e8;
+    text-decoration: none;
+    padding: 0.85rem;
+    transition: background-color 0.25s;
+}
+
+.navigation a:hover {
+    background-color: rgb(255, 50, 50);
+}
+
+/* flexbox контейнер для карточек */
+.content {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.card {
+    flex: 1;
+    background-color: #343434;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #d5d8dc;
+}
+
+.card h3 {
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+}
+
+/* мейн контейнер */
+.main {
+    display: flex;
+    min-height: 480px;
+}
+
+/* бок-навигация */
+.navigation {
+    flex: 0 0 220px;
+    background-color: #363636;
+    color: #f5f5f5;
+    padding: 1.25rem;
+}
+
+.navigation h2 {
+    margin-bottom: 1.25rem;
+    color: rgb(255, 50, 50);
+}
+
+/* мейн контент */
+.content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: #282828;
+}
+
+/* бок-панель */
+.sidebar {
+    flex: 0 0 220px;
+    background-color: #363636;
+    padding: 1.25rem;
+    border-left: 3px solid #464646;
+    color: #f5f5f5;
+}
+
+/* footRR */
+.footer {
+    background-color: #363636;
+    color: #f5f5f5;
+    padding: 1.75rem 1rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    text-align: center;
+    padding: 0.85rem;
+    background-color: #282828;
+    margin: 0 0.75rem;
+    border-radius: 6px;
+}
+
+/* центр заголовка */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+}
+
+/* выравнивание карточек по вертикали */
+.content {
+    align-items: flex-start;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* адаптив для мобилки */
+@media (max-width: 700px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .navigation {
+        flex: 0 0 auto;
+    }
+
+    .sidebar {
+        flex: 0 0 auto;
+        border-left: none;
+        border-top: 3px solid #464646;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .footer-section {
+        margin: 0;
+    }
+}
+
+/* изменение порядка */
+.card:nth-child(1) {
+    order: 3;
+}
+
+.card:nth-child(2) {
+    order: 1;
+}
+
+.card:nth-child(3) {
+    order: 2;
+}
+
+.card p{
+    color: #A7A7A7;
+}
+
+/* размеры карточек */
+.card:first-child {
+    flex: 1.5;
+}
+
+.card:last-child {
+    flex: 0.7;
+}
