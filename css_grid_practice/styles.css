@@ -1,0 +1,168 @@
+/* ===== Часть 2: основная Grid-сетка с именованными областями ===== */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav main"
+        "sidebar footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 220px 1fr;   /* свои значения: было 250px */
+    min-height: 100vh;
+    gap: 0;
+}
+
+.header     { grid-area: header; }
+.navigation { grid-area: nav; }
+.main-content {
+    grid-area: main;
+    padding: 1.5rem;
+}
+.sidebar {
+    grid-area: sidebar;
+    background-color: #e8f4ea;
+    padding: 1.25rem;
+}
+.footer { grid-area: footer; }
+
+/* ===== Header ===== */
+.header {
+    background: linear-gradient(120deg, #0f766e 0%, #3b82f6 100%);
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+}
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.25rem;
+}
+
+/* ===== Навигация ===== */
+.navigation {
+    background-color: #1e293b;
+    color: #fff;
+    padding: 1.25rem 1rem;
+}
+.navigation ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;     /* свой вариант: вертикальное меню в боковой колонке */
+    gap: 0.5rem;
+}
+.navigation a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    transition: background-color 0.25s;
+}
+.navigation a:hover {
+    background-color: #475569;
+}
+
+/* ===== Часть 3.1: main как вложенный Grid ===== */
+.main-content {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-rows: auto 1fr;
+}
+
+.featured {
+    background: linear-gradient(120deg, #f59e0b 0%, #ef4444 100%);
+    color: #fff;
+    padding: 1.75rem;
+    border-radius: 14px;
+    text-align: center;
+}
+.featured h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+}
+
+/* ===== Галерея (3.1 → 4.1 → 4.2 → 5.1) ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+    align-items: stretch;      /* свой вариант: было start */
+    justify-items: stretch;    /* свой вариант: было center */
+    grid-auto-rows: minmax(120px, auto);
+    grid-auto-flow: row dense;
+}
+
+.gallery-item {
+    background: linear-gradient(120deg, #06b6d4 0%, #8b5cf6 100%);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    min-height: 120px;
+}
+
+/* Задача 4.1: позиционирование через grid-area
+   (row-start / column-start / row-end / column-end) */
+.gallery-item:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
+.gallery-item:nth-child(2) { grid-area: 1 / 2 / 2 / 3; }
+
+/* Выделенный элемент на две колонки (свои цвета) */
+.gallery-item:nth-child(3) {
+    grid-column: span 2;
+    background: linear-gradient(120deg, #fb7185 0%, #fde68a 100%);
+    color: #1e293b;
+}
+
+/* ===== Часть 3.2: Footer как Grid ===== */
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    background-color: #334155;
+    color: #fff;
+    padding: 1.5rem;
+}
+.footer-section {
+    background-color: #1e293b;
+    padding: 1.25rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* ===== Часть 4.3: адаптивность ===== */
+@media (max-width: 900px) {          /* свой порог: было 1024px */
+    .grid-container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+    .navigation ul {
+        flex-direction: row;         /* на узком экране меню снова в строку */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===== Часть 5.1: альтернативная запись сетки (закомментирована) =====
+.grid-container {
+    grid-template:
+        "header header" auto
+        "nav main"      1fr
+        "sidebar footer" auto
+        / 220px 1fr;
+}
+*/
