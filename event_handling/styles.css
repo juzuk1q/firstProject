@@ -1,0 +1,430 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding-bottom: 2rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px;
+}
+
+/* Шапка страницы */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.2rem 2rem;
+    text-align: center;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+header h1 {
+    color: #1e293b;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    color: #64748b;
+    font-size: 1.05rem;
+}
+
+/* Карточки задач */
+.task-area {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 1.8rem;
+    margin-bottom: 1.75rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-left: 6px solid #3498db;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-area:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.11);
+}
+
+.task-area h3 {
+    color: #1e293b;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.event-demo, .keyboard-demo, .delegation-demo,
+.prevention-demo, .custom-events-demo, .loading-demo, .timer-demo {
+    margin: 1rem 0;
+}
+
+/* Кнопки */
+button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.4rem;
+    margin: 0.4rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(52, 152, 219, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    user-select: none;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(52, 152, 219, 0.45);
+    background: linear-gradient(135deg, #2980b9, #1c638f);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Блоки вывода информации */
+.output {
+    background: #f8fafc;
+    color: #1e293b;
+    padding: 0.9rem 1.2rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3498db;
+    font-family: Consolas, 'Fira Code', 'Courier New', monospace;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    word-break: break-word;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+}
+
+/* Интерактивный цветовой блок (Задача 1) */
+.color-box {
+    width: 220px;
+    height: 100px;
+    background: #3498db;
+    margin: 1.2rem 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(52, 152, 219, 0.25);
+    user-select: none;
+}
+
+.color-box:hover {
+    background: #2980b9;
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(41, 128, 185, 0.35);
+}
+
+/* Поля текстового ввода */
+input[type="text"] {
+    padding: 0.75rem 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    background: #ffffff;
+    width: 320px;
+    max-width: 100%;
+    margin: 0.4rem 0;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+}
+
+/* Подсказки клавиатурных комбинаций (Задача 2) */
+.key-combination {
+    background: #f1f5f9;
+    padding: 1.1rem;
+    border-radius: 10px;
+    margin: 1.2rem 0;
+    border: 1px solid #e2e8f0;
+}
+
+.key-combination p {
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+.key-combination ul {
+    list-style: none;
+    margin-left: 0;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.key-combination li {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-bottom: 3px solid #94a3b8;
+    border-radius: 6px;
+    padding: 0.35rem 0.75rem;
+    font-family: Consolas, monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Список для делегирования событий (Задача 3) */
+.item-list {
+    border: 2px solid #f1f5f9;
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1.2rem 0;
+    max-width: 600px;
+}
+
+.item {
+    background: white;
+    padding: 0.85rem 1.1rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.item:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateX(3px);
+}
+
+.item.selected {
+    background: #ecfdf5;
+    border-color: #10b981;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+}
+
+.delete {
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.delete:hover {
+    background: #ef4444;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Предотвращение поведения (Задача 4) */
+.prevent-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    padding: 0.85rem 1.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 1rem 0;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.prevent-link:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.prevent-form {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 1.3rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.prevent-form input[type="text"] {
+    margin: 0;
+    flex: 1;
+    min-width: 220px;
+}
+
+.prevent-form button {
+    margin: 0;
+}
+
+/* Загрузка изображений (Задача 6) */
+.image-container {
+    width: 320px;
+    height: 210px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 10px;
+    margin: 1.2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    animation: fadeIn 0.4s ease-in;
+}
+
+.loading {
+    border-color: #3498db;
+    background: #eff6ff;
+    border-style: solid;
+}
+
+.error {
+    border-color: #ef4444;
+    background: #fef2f2;
+    border-style: solid;
+}
+
+.success {
+    border-color: #10b981;
+    background: #f0fdf4;
+    border-style: solid;
+}
+
+/* Блоки результатов тестирования */
+.test-result {
+    margin: 10px 0;
+    padding: 14px 18px;
+    border-radius: 8px;
+    border-left: 5px solid #007acc;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    font-size: 0.95rem;
+}
+
+.test-success {
+    border-color: #10b981;
+    background: #f0fdf4;
+    color: #065f46;
+}
+
+.test-failure {
+    border-color: #ef4444;
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 1.4rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    color: #64748b;
+    font-weight: 500;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Анимации */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Адаптивность для мобильных экранов */
+@media (max-width: 640px) {
+    .container {
+        padding: 16px 12px;
+    }
+    header {
+        padding: 1.5rem 1rem;
+    }
+    .task-area {
+        padding: 1.2rem;
+    }
+    input[type="text"] {
+        width: 100%;
+    }
+    button {
+        width: 100%;
+        margin: 0.35rem 0;
+    }
+    .image-container {
+        width: 100%;
+        height: 180px;
+    }
+}
