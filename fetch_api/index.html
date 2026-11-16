@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch API - Работа с HTTP запросами</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header id="main-header">
+      <h1>Практическая работа: Fetch API</h1>
+      <p>Реализуйте функции в файле fetch-tasks.js</p>
+    </header>
+
+    <!-- Область для задач -->
+    <section id="tasks-section">
+      <!-- Задача 1: Базовые GET запросы -->
+      <div class="task-area" id="task1">
+        <h3>Задача 1: Базовые GET запросы</h3>
+        <div class="fetch-demo">
+          <button id="fetch-get">Простой GET запрос</button>
+          <button id="fetch-json">GET с JSON данными</button>
+          <button id="fetch-error">Тест ошибки</button>
+          <div id="get-output" class="output">GET результаты: </div>
+          <div id="get-data" class="data-container"></div>
+        </div>
+      </div>
+
+      <!-- Задача 2: POST, PUT, DELETE -->
+      <div class="task-area" id="task2">
+        <h3>Задача 2: POST, PUT, DELETE запросы</h3>
+        <div class="crud-demo">
+          <button id="fetch-post">Создать пост (POST)</button>
+          <button id="fetch-put">Обновить пост (PUT)</button>
+          <button id="fetch-patch">Частичное обновление (PATCH)</button>
+          <button id="fetch-delete">Удалить пост (DELETE)</button>
+          <div id="crud-output" class="output">CRUD операции: </div>
+        </div>
+      </div>
+
+      <!-- Задача 3: Заголовки и параметры -->
+      <div class="task-area" id="task3">
+        <h3>Задача 3: Заголовки и параметры</h3>
+        <div class="headers-demo">
+          <button id="fetch-headers">Запрос с заголовками</button>
+          <button id="fetch-auth">Авторизация</button>
+          <button id="fetch-params">Параметры запроса</button>
+          <button id="fetch-timeout">Таймаут запроса</button>
+          <div id="headers-output" class="output">Заголовки и параметры: </div>
+        </div>
+      </div>
+
+      <!-- Задача 4: Обработка ответов -->
+      <div class="task-area" id="task4">
+        <h3>Задача 4: Обработка ответов</h3>
+        <div class="response-demo">
+          <button id="fetch-status">Проверка статуса</button>
+          <button id="fetch-headers-response">Чтение заголовков ответа</button>
+          <button id="fetch-blob">Работа с Blob</button>
+          <button id="fetch-formdata">Отправка FormData</button>
+          <div id="response-output" class="output">Обработка ответов: </div>
+          <div id="response-data" class="data-container"></div>
+        </div>
+      </div>
+
+      <!-- Задача 5: Обработка ошибок -->
+      <div class="task-area" id="task5">
+        <h3>Задача 5: Обработка ошибок</h3>
+        <div class="error-demo">
+          <button id="fetch-network-error">Ошибка сети</button>
+          <button id="fetch-http-error">HTTP ошибки</button>
+          <button id="fetch-abort">Отмена запроса</button>
+          <button id="fetch-retry">Повторные попытки</button>
+          <div id="error-output" class="output">Обработка ошибок: </div>
+        </div>
+      </div>
+
+      <!-- Задача 6: Параллельные запросы -->
+      <div class="task-area" id="task6">
+        <h3>Задача 6: Параллельные запросы</h3>
+        <div class="parallel-demo">
+          <button id="fetch-all">Promise.all с fetch</button>
+          <button id="fetch-race">Promise.race с fetch</button>
+          <button id="fetch-sequential">Последовательные запросы</button>
+          <div id="parallel-output" class="output">Параллельные запросы: </div>
+        </div>
+      </div>
+
+      <!-- Задача 7: Реальные сценарии -->
+      <div class="task-area" id="task7">
+        <h3>Задача 7: Реальные сценарии</h3>
+        <div class="real-scenarios">
+          <button id="fetch-user-posts">Пользователь и его посты</button>
+          <button id="fetch-search">Поиск с API</button>
+          <button id="fetch-upload">Симуляция загрузки</button>
+          <button id="fetch-cache">Кэширование запросов</button>
+          <div id="scenario-output" class="output">Реальные сценарии: </div>
+          <div id="scenario-data" class="data-container"></div>
+        </div>
+      </div>
+
+      <!-- Задача 8: Тестирование -->
+      <div class="task-area" id="task-tests">
+        <h3>Автоматическое тестирование (fetch-tests.js)</h3>
+        <div style="margin: 1rem 0;">
+          <button id="run-all-tests" style="background: #27ae60; font-weight: bold; font-size: 1.05rem;">
+            Запустить все тесты Fetch API
+          </button>
+          <div id="tests-summary" class="output" style="margin-top: 1rem;">Результаты тестов: нажмите кнопку запуска выше</div>
+          <div id="tests-container" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="main-footer">
+      <p>Проверьте консоль для тестирования. Используется JSONPlaceholder API.</p>
+    </footer>
+  </div>
+
+  <script src="fetch-tasks.js"></script>
+  <script src="fetch-tests.js"></script>
+</body>
+</html>
