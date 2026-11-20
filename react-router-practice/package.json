@@ -1,0 +1,15 @@
+{
+  "name": "react-router-practice",
+  "version": "1.0.0",
+  "description": "Практическая работа №18: React: маршрутизация",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0"
+  }
+}
