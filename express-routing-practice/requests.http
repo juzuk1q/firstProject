@@ -1,0 +1,56 @@
+### 1. Главная страница
+GET http://localhost:3000/
+
+### 2. Проверка здоровья (health check)
+GET http://localhost:3000/health
+
+### 3. Получение всех пользователей
+GET http://localhost:3000/api/users
+
+### 4. Фильтрация пользователей по роли и поиск
+GET http://localhost:3000/api/users?role=user&search=Иван
+
+### 5. Получение пользователя по ID
+GET http://localhost:3000/api/users/1
+
+### 6. Создание нового пользователя
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "name": "Сергей Васильев",
+  "email": "sergey@example.com",
+  "role": "user"
+}
+
+### 7. Обновление пользователя (PUT)
+PUT http://localhost:3000/api/users/1
+Content-Type: application/json
+
+{
+  "name": "Иван Обновленный",
+  "email": "ivan_updated@example.com",
+  "role": "admin"
+}
+
+### 8. Удаление пользователя
+DELETE http://localhost:3000/api/users/1
+
+### 9. Получение товаров с фильтрацией
+GET http://localhost:3000/api/products?category=electronics&inStock=true&minPrice=1000&maxPrice=60000
+
+### 10. Создание товара
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Планшет",
+  "price": 25000,
+  "category": "electronics",
+  "inStock": true
+}
+
+### curl примеры:
+# curl -X GET http://localhost:3000/api/users
+# curl -X POST http://localhost:3000/api/users -H "Content-Type: application/json" -d "{\"name\":\"Илья\",\"email\":\"ilya@test.com\"}"
+# curl -X GET "http://localhost:3000/api/products?category=electronics"

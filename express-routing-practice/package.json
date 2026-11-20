@@ -1,0 +1,12 @@
+{
+  "name": "express-routing-practice",
+  "version": "1.0.0",
+  "description": "Практическая работа №20: Express.js: настройка роутинга",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
