@@ -1,0 +1,12 @@
+{
+  "name": "rest-api-practice",
+  "version": "1.0.0",
+  "description": "Практическая работа №21: Создание REST API: основные методы",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,53 @@
+### 1. Получение всех книг с пагинацией (страница 1, лимит 2)
+GET http://localhost:3000/api/books?page=1&limit=2
+
+### 2. Фильтрация книг по автору и жанру
+GET http://localhost:3000/api/books?author=Иван&genre=Программирование&page=1&limit=10
+
+### 3. Фильтрация по наличию (доступные книги)
+GET http://localhost:3000/api/books?available=true
+
+### 4. Получение книги по ID
+GET http://localhost:3000/api/books/1
+
+### 5. Создание новой книги (POST)
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+  "title": "Паттерны объектно-ориентированного проектирования",
+  "author": "Банда четырех",
+  "year": 1994,
+  "isbn": "978-5-4461-1234-5",
+  "genre": "Архитектура ПО"
+}
+
+### 6. Полное обновление книги (PUT)
+PUT http://localhost:3000/api/books/1
+Content-Type: application/json
+
+{
+  "title": "Обновленное название",
+  "author": "Новый автор",
+  "year": 2024,
+  "isbn": "123-456-789",
+  "genre": "IT",
+  "available": true
+}
+
+### 7. Частичное обновление книги (PATCH)
+PATCH http://localhost:3000/api/books/1
+Content-Type: application/json
+
+{
+  "available": false
+}
+
+### 8. Удаление книги (DELETE)
+DELETE http://localhost:3000/api/books/1
+
+### curl примеры:
+# curl -X GET "http://localhost:3000/api/books?author=Иван&genre=Программирование&page=1&limit=10"
+# curl -X POST http://localhost:3000/api/books -H "Content-Type: application/json" -d "{\"title\":\"Node.js в действии\",\"author\":\"Алекс\",\"year\":2023,\"isbn\":\"999-111\",\"genre\":\"IT\"}"
+# curl -X PUT http://localhost:3000/api/books/1 -H "Content-Type: application/json" -d "{\"title\":\"Обновлено\",\"author\":\"Автор\",\"year\":2024,\"isbn\":\"123-456-789\",\"genre\":\"IT\"}"
+# curl -X DELETE http://localhost:3000/api/books/1
