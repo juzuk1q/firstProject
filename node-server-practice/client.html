@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тестирование Node.js сервера</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #fafbfc; color: #333; }
+    .container { max-width: 800px; margin: 0 auto; }
+    .section { margin-bottom: 25px; padding: 20px; border: 1px solid #ddd; border-radius: 6px; background: #fff; }
+    button { padding: 8px 16px; margin: 5px; cursor: pointer; background: #0366d6; color: white; border: none; border-radius: 4px; }
+    button:hover { background: #0255b5; }
+    pre { background: #f6f8fa; padding: 12px; border-radius: 4px; border: 1px solid #e1e4e8; overflow-x: auto; font-size: 13px; }
+    input { width: 100%; box-sizing: border-box; padding: 8px; margin: 6px 0; border: 1px solid #ccc; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Тестирование Node.js API</h1>
+
+    <div class="section">
+      <h2>Получить всех пользователей</h2>
+      <button onclick="getUsers()">GET /api/users</button>
+      <pre id="usersResult">Ожидание запроса...</pre>
+    </div>
+
+    <div class="section">
+      <h2>Создать пользователя</h2>
+      <input type="text" id="userName" placeholder="Имя" />
+      <input type="email" id="userEmail" placeholder="Email" />
+      <button onclick="createUser()">POST /api/users</button>
+      <pre id="createResult">Ожидание запроса...</pre>
+    </div>
+
+    <div class="section">
+      <h2>Работа с конкретным пользователем</h2>
+      <input type="number" id="userId" placeholder="ID пользователя" min="1" />
+      <button onclick="getUser()">GET пользователя</button>
+      <button onclick="updateUser()">PUT пользователя</button>
+      <button onclick="deleteUser()">DELETE пользователя</button>
+      <pre id="userResult">Ожидание запроса...</pre>
+    </div>
+
+    <div class="section">
+      <h2>Статус сервера</h2>
+      <button onclick="getStatus()">GET /api/status</button>
+      <pre id="statusResult">Ожидание запроса...</pre>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = 'http://localhost:3000/api';
+
+    // Выполнение HTTP-запроса и форматирование JSON ответа
+    async function makeRequest(url, options = {}) {
+      try {
+        const response = await fetch(url, {
+          headers: {
+            'Content-Type': 'application/json',
+            ...options.headers
+          },
+          ...options
+        });
+        const data = await response.json();
+        return { data, status: response.status };
+      } catch (error) {
+        return { error: error.message };
+      }
+    }
+
+    // Получение списка всех пользователей
+    async function getUsers() {
+      const result = await makeRequest(`${API_BASE}/users`);
+      document.getElementById('usersResult').textContent = JSON.stringify(result, null, 2);
+    }
+
+    // Создание пользователя через POST запрос
+    async function createUser() {
+      const name = document.getElementById('userName').value;
+      const email = document.getElementById('userEmail').value;
+
+      const result = await makeRequest(`${API_BASE}/users`, {
+        method: 'POST',
+        body: JSON.stringify({ name, email })
+      });
+
+      document.getElementById('createResult').textContent = JSON.stringify(result, null, 2);
+      document.getElementById('userName').value = '';
+      document.getElementById('userEmail').value = '';
+      getUsers();
+    }
+
+    // Запрос пользователя по числовому ID
+    async function getUser() {
+      const userId = document.getElementById('userId').value;
+      if (!userId) return alert('Введите ID пользователя');
+
+      const result = await makeRequest(`${API_BASE}/users/${userId}`);
+      document.getElementById('userResult').textContent = JSON.stringify(result, null, 2);
+    }
+
+    // Обновление пользователя по ID
+    async function updateUser() {
+      const userId = document.getElementById('userId').value;
+      if (!userId) return alert('Введите ID пользователя');
+
+      const name = prompt('Новое имя:');
+      const email = prompt('Новый email:');
+
+      if (name && email) {
+        const result = await makeRequest(`${API_BASE}/users/${userId}`, {
+          method: 'PUT',
+          body: JSON.stringify({ name, email })
+        });
+        document.getElementById('userResult').textContent = JSON.stringify(result, null, 2);
+        getUsers();
+      }
+    }
+
+    // Удаление пользователя по ID
+    async function deleteUser() {
+      const userId = document.getElementById('userId').value;
+      if (!userId) return alert('Введите ID пользователя');
+
+      if (confirm(`Удалить пользователя с ID ${userId}?`)) {
+        const result = await makeRequest(`${API_BASE}/users/${userId}`, {
+          method: 'DELETE'
+        });
+        document.getElementById('userResult').textContent = JSON.stringify(result, null, 2);
+        getUsers();
+      }
+    }
+
+    // Запрос статуса сервера и системных метрик
+    async function getStatus() {
+      const result = await makeRequest(`${API_BASE}/status`);
+      document.getElementById('statusResult').textContent = JSON.stringify(result, null, 2);
+    }
+
+    getUsers();
+  </script>
+</body>
+</html>

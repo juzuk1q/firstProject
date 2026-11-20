@@ -1,0 +1,13 @@
+{
+  "name": "node-server-practice",
+  "version": "1.0.0",
+  "description": "Практическая работа №19: Node.js: создание простого сервера",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "advanced": "node advanced-server.js"
+  },
+  "keywords": ["nodejs", "http", "api", "rest"],
+  "author": "",
+  "license": "ISC"
+}
